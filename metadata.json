@@ -1,0 +1,6 @@
+{
+  "name": "DreamBoard AI – Dream It. Design It. Grow Into It.",
+  "description": "Innovative interactive 3D dream visualization, goal planning, and AI action system with customizable claymorphism worlds.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

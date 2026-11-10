@@ -1,0 +1,179 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-app: 'Fredoka', 'Plus Jakarta Sans', sans-serif;
+    --clay-radius: 1.5rem;
+  }
+
+  body {
+    font-family: var(--font-app);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    user-select: none;
+    overflow-x: hidden;
+  }
+
+  /* Accessible focus states */
+  :focus-visible {
+    outline: 3px solid #ff758f;
+    outline-offset: 3px;
+  }
+}
+
+/* Claymorphism tactile utility classes */
+.clay-card {
+  border-radius: 1.75rem;
+  background: var(--bg-card, #ffffff);
+  box-shadow: 
+    10px 14px 28px var(--clay-shadow-dark, rgba(160, 140, 180, 0.18)),
+    -8px -8px 24px var(--clay-shadow-light, rgba(255, 255, 255, 0.9)),
+    inset 2px 2px 5px rgba(255, 255, 255, 0.8),
+    inset -3px -3px 6px rgba(0, 0, 0, 0.04);
+  border: 1.5px solid var(--clay-border, rgba(255, 255, 255, 0.6));
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.clay-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    12px 18px 32px var(--clay-shadow-dark, rgba(160, 140, 180, 0.22)),
+    -10px -10px 28px var(--clay-shadow-light, rgba(255, 255, 255, 0.95)),
+    inset 2px 2px 5px rgba(255, 255, 255, 0.9),
+    inset -3px -3px 6px rgba(0, 0, 0, 0.05);
+}
+
+.clay-button-primary {
+  border-radius: 1.25rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--primary, #ff758f);
+  color: var(--primary-text, #ffffff);
+  box-shadow: 
+    0 8px 18px var(--clay-shadow-dark, rgba(255, 117, 143, 0.35)),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.4),
+    inset -2px -2px 4px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.clay-button-primary:hover {
+  transform: translateY(-2px) scale(1.02);
+  filter: brightness(1.04);
+}
+
+.clay-button-primary:active {
+  transform: translateY(2px) scale(0.98);
+  box-shadow: 
+    0 2px 8px var(--clay-shadow-dark, rgba(255, 117, 143, 0.25)),
+    inset 3px 3px 6px rgba(0, 0, 0, 0.2),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.3);
+}
+
+.clay-button-secondary {
+  border-radius: 1.25rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--bg-surface, #f5f0fb);
+  color: var(--text-primary, #332744);
+  box-shadow: 
+    6px 8px 16px var(--clay-shadow-dark, rgba(160, 140, 180, 0.15)),
+    -5px -5px 12px var(--clay-shadow-light, rgba(255, 255, 255, 0.8)),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.7),
+    inset -2px -2px 4px rgba(0, 0, 0, 0.05);
+  border: 1.5px solid var(--clay-border, rgba(255, 255, 255, 0.7));
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.clay-button-secondary:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.02);
+}
+
+.clay-button-secondary:active {
+  transform: translateY(2px);
+  box-shadow: 
+    inset 3px 3px 6px rgba(0, 0, 0, 0.08),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.6);
+}
+
+.clay-pill {
+  border-radius: 9999px;
+  box-shadow: 
+    4px 6px 12px var(--clay-shadow-dark, rgba(160, 140, 180, 0.15)),
+    -3px -3px 8px var(--clay-shadow-light, rgba(255, 255, 255, 0.8)),
+    inset 1px 1px 3px rgba(255, 255, 255, 0.6);
+  border: 1px solid var(--clay-border, rgba(255, 255, 255, 0.5));
+}
+
+.clay-inset {
+  border-radius: 1.25rem;
+  background: rgba(0, 0, 0, 0.03);
+  box-shadow: 
+    inset 4px 5px 8px rgba(0, 0, 0, 0.08),
+    inset -3px -3px 6px rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.dark .clay-inset {
+  background: rgba(0, 0, 0, 0.3);
+  box-shadow: 
+    inset 4px 5px 10px rgba(0, 0, 0, 0.45),
+    inset -2px -2px 5px rgba(255, 255, 255, 0.05);
+}
+
+/* Custom soft clay scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #ffb7b2;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ff758f;
+}
+
+/* High contrast mode overrides */
+.high-contrast {
+  --clay-shadow-dark: rgba(0, 0, 0, 0.6) !important;
+  --clay-shadow-light: rgba(255, 255, 255, 1) !important;
+  --clay-border: #000000 !important;
+}
+.high-contrast * {
+  font-weight: 600 !important;
+}
+
+/* Reduced motion overrides */
+.reduced-motion * {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* 3D Floating Clay Float Animation */
+@keyframes clayFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1.5deg);
+  }
+}
+
+.animate-clay-float {
+  animation: clayFloat 4.5s ease-in-out infinite;
+}
+
+.animate-clay-float-slow {
+  animation: clayFloat 7s ease-in-out infinite;
+}
+
+.animate-clay-float-reverse {
+  animation: clayFloat 5s ease-in-out infinite reverse;
+}
